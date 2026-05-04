@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Settings"
+            android:fontFamily="serif"
+            android:textSize="40sp"
+            android:textColor="@color/ink"
+            android:letterSpacing="-0.02" />
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="✕"
+            android:textColor="@color/muted"
+            android:textSize="16sp"
+            android:background="@drawable/bg_border_outline"
+            android:elevation="0dp"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+        <LinearLayout
+            android:id="@+id/tabAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tabAppearanceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Appearance"
+                android:fontFamily="sans-serif"
+                android:textSize="10sp"
+                android:letterSpacing="0.16"
+                android:textAllCaps="true"
+                android:textColor="@color/ink"
+                android:paddingTop="18dp"
+                android:paddingBottom="14dp" />
+            <View
+                android:id="@+id/tabAppearanceIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/ink" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tabDock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tabDockText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dock &amp; Widget"
+                android:fontFamily="sans-serif"
+                android:textSize="10sp"
+                android:letterSpacing="0.16"
+                android:textAllCaps="true"
+                android:textColor="@color/muted"
+                android:paddingTop="18dp"
+                android:paddingBottom="14dp" />
+            <View
+                android:id="@+id/tabDockIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tabSystem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tabSystemText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="System"
+                android:fontFamily="sans-serif"
+                android:textSize="10sp"
+                android:letterSpacing="0.16"
+                android:textAllCaps="true"
+                android:textColor="@color/muted"
+                android:paddingTop="18dp"
+                android:paddingBottom="14dp" />
+            <View
+                android:id="@+id/tabSystemIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/rule_light" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ScrollView
+            android:id="@+id/panelAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:visibility="visible">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Header Wallpaper"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Wallpaper will be converted to greyscale automatically."
+                    android:fontFamily="serif"
+                    android:textStyle="italic"
+                    android:textSize="13sp"
+                    android:textColor="@color/muted"
+                    android:background="@drawable/bg_callout"
+                    android:padding="14dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="top">
+                    <ImageView
+                        android:id="@+id/wpPreview"
+                        android:layout_width="90dp"
+                        android:layout_height="116dp"
+                        android:background="@drawable/bg_border_outline"
+                        android:scaleType="centerCrop"
+                        android:src="@null" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/wpNoImageLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="No wallpaper\ncurrently set"
+                            android:fontFamily="serif"
+                            android:textStyle="italic"
+                            android:textSize="13sp"
+                            android:textColor="@color/muted"
+                            android:lineSpacingExtra="2dp" />
+                        <Button
+                            android:id="@+id/btnWallpaper"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="Choose image"
+                            android:fontFamily="serif"
+                            android:textSize="14sp"
+                            android:textColor="@color/ink"
+                            android:background="@drawable/bg_settings_btn"
+                            android:elevation="0dp"
+                            android:stateListAnimator="@null" />
+                        <Button
+                            android:id="@+id/btnRemoveWallpaper"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:text="Remove wallpaper"
+                            android:fontFamily="serif"
+                            android:textSize="14sp"
+                            android:textColor="@color/muted"
+                            android:background="@drawable/bg_settings_btn"
+                            android:elevation="0dp"
+                            android:stateListAnimator="@null"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:text="Theme"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+
+                <RadioGroup
+                    android:id="@+id/groupTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+                    <RadioButton
+                        android:id="@+id/radioAuto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Auto (Light 6AM-7PM)"
+                        android:fontFamily="serif"
+                        android:textSize="16sp"
+                        android:textColor="@color/ink"
+                        android:paddingVertical="8dp" />
+                    <RadioButton
+                        android:id="@+id/radioLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Always Light"
+                        android:fontFamily="serif"
+                        android:textSize="16sp"
+                        android:textColor="@color/ink"
+                        android:paddingVertical="8dp" />
+                    <RadioButton
+                        android:id="@+id/radioDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Always Dark"
+                        android:fontFamily="serif"
+                        android:textSize="16sp"
+                        android:textColor="@color/ink"
+                        android:paddingVertical="8dp" />
+                </RadioGroup>
+
+            </LinearLayout>
+        </ScrollView>
+        <ScrollView
+            android:id="@+id/panelDock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home Widget"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="18dp"
+                    android:paddingBottom="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Favorite Photo"
+                        android:fontFamily="serif"
+                        android:textSize="17sp"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnChooseWidgetPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Choose widget photo"
+                    android:fontFamily="serif"
+                    android:textSize="14sp"
+                    android:textColor="@color/ink"
+                    android:background="@drawable/bg_settings_btn"
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:text="Layout Settings"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Show Recent PDFs" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swShowPdfs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Show Favorite Photo" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swShowPhoto" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:text="Dock Apps"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Select which applications you want pinned to your quick-launch dock."
+                    android:fontFamily="serif"
+                    android:textStyle="italic"
+                    android:textSize="13sp"
+                    android:textColor="@color/muted"
+                    android:background="@drawable/bg_callout"
+                    android:padding="14dp" />
+                <LinearLayout
+                    android:id="@+id/dockEditor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </ScrollView>
+        <ScrollView
+            android:id="@+id/panelSystem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Display"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/bg_group_title_border" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="24-hour clock" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Show hours 00–23 instead of 12-hour format" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/sw24h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Show weather" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Display current conditions below the clock" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swWeather" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ink-saving mode" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Lighten borders to reduce e-ink refresh areas" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swInkSaving" android:layout_width="wrap_content" android:layout_height="wrap_content" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Compact dock" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Reduce dock height for more content area" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swCompactDock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Show dock labels" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Show app names beneath dock icons" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Switch android:id="@+id/swDockLabels" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:showText="false" android:thumb="@drawable/bg_switch_thumb" android:track="@drawable/bg_switch_track" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Default Launcher" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Set SERIF as your default home screen" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <Button android:id="@+id/btnSetDefaultLauncher" android:layout_width="wrap_content" android:layout_height="36dp" android:text="SET" android:textColor="@color/ink" android:background="@drawable/bg_settings_btn" android:stateListAnimator="@null" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Greeting Name" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Name displayed under the clock" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <EditText android:id="@+id/inputGreetingName" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:background="@drawable/bg_border_outline" android:textColor="@color/ink" android:fontFamily="serif" android:textSize="14sp" android:paddingHorizontal="8dp" android:singleLine="true" />
+                        <Button android:id="@+id/btnSaveGreeting" android:layout_width="wrap_content" android:layout_height="36dp" android:layout_marginLeft="8dp" android:text="SAVE" android:textColor="@color/ink" android:background="@drawable/bg_settings_btn" android:stateListAnimator="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:background="@drawable/bg_row_bottom_border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Google Client ID" android:fontFamily="serif" android:textSize="17sp" android:textColor="@color/ink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Your OAuth2 Client ID for Calendar sync" android:fontFamily="serif" android:textStyle="italic" android:textSize="12sp" android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <EditText android:id="@+id/inputClientId" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:background="@drawable/bg_border_outline" android:textColor="@color/ink" android:fontFamily="serif" android:textSize="14sp" android:paddingHorizontal="8dp" android:singleLine="true" />
+                        <Button android:id="@+id/btnSaveClientId" android:layout_width="wrap_content" android:layout_height="36dp" android:layout_marginLeft="8dp" android:text="SAVE" android:textColor="@color/ink" android:background="@drawable/bg_settings_btn" android:stateListAnimator="@null" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="About"
+                    android:fontFamily="serif"
+                    android:textSize="22sp"
+                    android:textColor="@color/ink"
+                    android:paddingBottom="4dp"
+                    android:background="@drawable/bg_group_title_border" />
+                <LinearLayout
+                    android:id="@+id/aboutSectionClickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SERIF eink Launcher"
+                            android:fontFamily="serif"
+                            android:textSize="17sp"
+                            android:textColor="@color/ink" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Version 1.0 by snes"
+                            android:fontFamily="serif"
+                            android:textStyle="italic"
+                            android:textSize="13sp"
+                            android:textColor="@color/muted" />
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/aboutLogo"
+                        android:layout_width="144dp"
+                        android:layout_height="144dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="-24dp"
+                        android:layout_marginBottom="-24dp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:tint="@color/ink"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

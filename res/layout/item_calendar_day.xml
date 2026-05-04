@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/day_root"
+    android:layout_width="match_parent"
+    android:layout_height="28dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/day_text"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textColor="@color/ink"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/event_dot"
+        android:layout_width="2dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/ink"
+        android:visibility="invisible" />
+</LinearLayout>

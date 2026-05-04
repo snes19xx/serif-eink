@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#FFFFFF</color>
+    <color name="white">#000000</color>
+    <color name="rule">#555555</color>
+    <color name="rule_light">#333333</color>
+    <color name="muted">#AAAAAA</color>
+    <color name="fill">#222222</color>
+    <color name="fill_medium">#444444</color>
+</resources>
